@@ -1,10 +1,10 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:0.203.0-jammy
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
-	apt-get -y install make bear picocom xz-utils python3-pip telnet bzip2 libncurses5
+	apt-get -y install make bear picocom xz-utils python3-pip telnet libncurses5
 
 # ARM GCC Compiler
-RUN curl -sL "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2" | tar -xjf - -C /usr/local --strip-components=1
+RUN curl -sL "https://developer.arm.com/-/media/Files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-x86_64-arm-none-eabi.tar.xz" | tar -xJf - -C /usr/local --strip-components=1
 
 # OpenOCD (version 0.11.0 in repository)
 RUN export DEBIAN_FRONTEND=noninteractive && \
