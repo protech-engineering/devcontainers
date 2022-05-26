@@ -4,9 +4,9 @@ permissions:
   packages: write
 
 on:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - "**-**"
 
 jobs:
   docker:

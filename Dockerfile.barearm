@@ -1,0 +1,18 @@
+FROM mcr.microsoft.com/vscode/devcontainers/base:0.203.0-jammy
+
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
+	apt-get -y install make bear picocom xz-utils python3-pip telnet bzip2 libncurses5
+
+# ARM GCC Compiler
+RUN curl -sL "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2" | tar -xjf - -C /usr/local --strip-components=1
+
+# OpenOCD (version 0.11.0 in repository)
+RUN export DEBIAN_FRONTEND=noninteractive && \
+	apt-get -y install openocd
+
+# Texane st-link (version 1.7.0 in repository)
+RUN export DEBIAN_FRONTEND=noninteractive && \
+	apt-get -y install stlink-tools
+
+# PyOCD
+RUN pip install pyocd==0.33.1
