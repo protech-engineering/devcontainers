@@ -32,7 +32,7 @@ Variant names and versions must not contain any `-` character (dash), because it
 2. Build locally:
 
 	```bash
-	$ docker build -f Dockerfile.[variant] -t [variant]-localtest # Tag name can be whatever you want
+	$ docker build -f Dockerfile.[variant] -t [variant]-localtest . # Tag name can be whatever you want
 	```
 
 	Now the locally built image is accessible by the tag `[variant]-localtest`.
@@ -65,4 +65,11 @@ Variant names and versions must not contain any `-` character (dash), because it
 
 	```
 	$ docker pull ghcr.io/protech-engineering/devcontainers:[variant]-[version]
+	```
+
+### Choosing a base image
+
+* For embedded targeted images: always choose `mcr.microsoft.com/vscode/devcontainers/base`, with the Ubuntu variant. For the version tag, use the semantic versioning, e.g. `0.203.0-jammy` or `0.203.0-ubuntu-22.04`. When choosing the ubuntu versions you must choose an LTS:
+	```dockerfile
+	FROM mcr.microsoft.com/vscode/devcontainers/base:0.204.6-ubuntu-22.04
 	```
