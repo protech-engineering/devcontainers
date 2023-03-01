@@ -18,6 +18,7 @@ assert_raises "picocom --help"
 # Test programming tools
 assert_raises "pyocd --version"
 assert_raises "openocd --version"
+assert_raises "openocd -c 'adapter driver dummy' -c 'shutdown'"
 assert_raises "st-util --version"
 assert_raises "st-flash --version"
 

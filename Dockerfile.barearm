@@ -9,16 +9,17 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 # ARM GCC Compiler
 RUN curl -sL "https://developer.arm.com/-/media/Files/downloads/gnu/12.2.rel1/binrel/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi.tar.xz" | tar -xJf - -C /usr/local --strip-components=1
 
-# OpenOCD (version 0.11.0 in repository)
-RUN export DEBIAN_FRONTEND=noninteractive && \
-	apt-get -y install openocd
+# OpenOCD (version 0.12.0-1)
+RUN mkdir /opt/openocd && \
+	curl -sL "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.12.0-1/xpack-openocd-0.12.0-1-linux-x64.tar.gz" | tar -xzf - -C /opt/openocd --strip-components=1 && \
+	ln -s /opt/openocd/bin/openocd /usr/local/bin/openocd
 
 # Texane st-link (version 1.7.0 in repository)
 RUN export DEBIAN_FRONTEND=noninteractive && \
 	apt-get -y install stlink-tools
 
 # PyOCD
-RUN pip install pyocd==0.34.1
+RUN pip install pyocd==0.34.3
 
 # Test the container
 ADD test /opt/test
