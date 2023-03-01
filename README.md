@@ -2,7 +2,7 @@
 
 In this repository are archived many variants of Dockerfiles used internally at Protech Engineering to provide ready-to-go and reproducible build environments.
 
-All Dockerfiles inherit from Microsoft devcontainer images, for better integration with VScode.
+All Dockerfiles inherit from Microsoft devcontainer images, for better integration with VSCode and devcontainer tools.
 
 Different image variants are identified by the suffix in each `Dockerfile`.
 
@@ -11,6 +11,11 @@ Different image variants are identified by the suffix in each `Dockerfile`.
 | Name | Tagging convention | Notes |
 |------|--------------------|-------|
 | barearm | `barearm-[ARM toolchain version]` | This image implements basic support for ARM bare metal targets. Usually contains GCC, OpenOCD, PyOCD, st-link |
+
+## Dockerfile nomenclature
+
+For each variant a dockerfile with name `Dockerfile.[variant]` is present in the
+root folder of the repository.
 
 ## Image building
 
@@ -69,7 +74,7 @@ Variant names and versions must not contain any `-` character (dash), because it
 
 ### Choosing a base image
 
-* For embedded targeted images: always choose `mcr.microsoft.com/vscode/devcontainers/base`, with the Ubuntu variant. For the version tag, use the semantic versioning, e.g. `0.203.0-jammy` or `0.203.0-ubuntu-22.04`. When choosing the ubuntu versions you must choose an LTS:
+* For embedded targeted images: always choose `mcr.microsoft.com/devcontainers/base`, with the Ubuntu variant. For the version tag, use the semantic versioning, e.g. `1.0.8-jammy` or `1.0.8-ubuntu-22.04`. When choosing the ubuntu versions you must choose an LTS:
 	```dockerfile
-	FROM mcr.microsoft.com/vscode/devcontainers/base:0.204.6-ubuntu-22.04
+	FROM mcr.microsoft.com/devcontainers/base:1.0.8-ubuntu-22.04
 	```
