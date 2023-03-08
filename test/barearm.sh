@@ -22,6 +22,10 @@ assert_raises "openocd -c 'adapter driver dummy' -c 'shutdown'"
 assert_raises "st-util --version"
 assert_raises "st-flash --version"
 
+# Test orbuculum
+assert_raises "orbcat --version" 255
+assert_raises "orbtop --version" 234
+
 assert "arm-none-eabi-gdb -batch -ex 'python print(\"OK\")'" "OK"
 
 assert_end dockerfile
