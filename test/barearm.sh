@@ -21,6 +21,7 @@ assert_raises "openocd --version"
 assert_raises "openocd -c 'adapter driver dummy' -c 'shutdown'"
 assert_raises "st-util --version"
 assert_raises "st-flash --version"
+assert_raises "STM32_Programmer_CLI --version"
 
 # Test orbuculum
 assert_raises "orbcat --version" 255
