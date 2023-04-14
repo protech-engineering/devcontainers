@@ -10,6 +10,7 @@ assert_raises "arm-none-eabi-gcc --version"
 assert_raises "arm-none-eabi-gdb --version"
 assert_raises "arm-none-eabi-objcopy --version"
 assert_raises "make --version"
+assert_raises "cmake --version"
 
 # Test tools
 assert_raises "bear --version"
