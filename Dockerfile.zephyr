@@ -1,0 +1,27 @@
+FROM ghcr.io/zephyrproject-rtos/ci:v0.26.1
+
+# Default configuration for the devcontainer
+LABEL devcontainer.metadata='[{													\
+	"privileged": true,															\
+	"mounts": [																	\
+		"type=bind,source=/dev,target=/dev"										\
+	],																			\
+	"remoteUser": "vscode",														\
+	"customizations": {															\
+		"vscode": {																\
+			"settings": {														\
+				"remote.autoForwardPorts": false								\
+			},																	\
+			"extensions": [														\
+				"mhutchie.git-graph",											\
+				"eamodio.gitlens",												\
+				"ms-vscode.cpptools",											\
+				"ms-vscode.vscode-embedded-tools",								\
+				"trond-snekvik.gnu-mapfiles",									\
+				"dan-c-underwood.arm",											\
+				"ZixuanWang.linkerscript",										\
+				"ms-vscode.hexeditor"											\
+			]																	\
+		}																		\
+	}																			\
+}]'

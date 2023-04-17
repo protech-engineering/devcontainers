@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dockerfile: [barearm]
+        dockerfile: [barearm, zephyr]
     steps:
       -
         name: Login to GitHub Container Registry
