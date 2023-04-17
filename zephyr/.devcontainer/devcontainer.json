@@ -28,7 +28,10 @@
 				"trond-snekvik.gnu-mapfiles",
 				"dan-c-underwood.arm",
 				"ZixuanWang.linkerscript",
-				"ms-vscode.hexeditor"
+				"ms-vscode.hexeditor",
+				"redhat.vscode-yaml",
+				"nordic-semiconductor.nrf-kconfig",
+				"nordic-semiconductor.nrf-devicetree"
 			]
 		}
 	}
