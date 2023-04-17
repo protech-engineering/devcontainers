@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        variant: [barearm, zephyr]
+        variant: [barearm, zephyr, esp]
     steps:
       - name: Checkout (GitHub)
         uses: actions/checkout@v3
