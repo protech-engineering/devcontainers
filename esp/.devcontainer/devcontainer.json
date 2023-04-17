@@ -1,7 +1,7 @@
 {
 	"build": {
 		"dockerfile": "Dockerfile",
-		"context": "../../"
+		"context": "../"
 	},
 	"privileged": true,
 	"mounts": [
@@ -30,7 +30,9 @@
 				"trond-snekvik.gnu-mapfiles",
 				"dan-c-underwood.arm",
 				"ZixuanWang.linkerscript",
-				"ms-vscode.hexeditor"
+				"ms-vscode.hexeditor",
+				"ms-vscode.cmake-tools",
+				"twxs.cmake"
 			]
 		}
 	}
