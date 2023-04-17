@@ -1,0 +1,28 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "../../"
+	},
+	"privileged": true,
+	"mounts": [
+		"type=bind,source=/dev,target=/dev"
+	],
+	"remoteUser": "vscode",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"remote.autoForwardPorts": false
+			},
+			"extensions": [
+				"mhutchie.git-graph",
+				"eamodio.gitlens",
+				"ms-vscode.cpptools",
+				"ms-vscode.vscode-embedded-tools",
+				"trond-snekvik.gnu-mapfiles",
+				"dan-c-underwood.arm",
+				"ZixuanWang.linkerscript",
+				"ms-vscode.hexeditor"
+			]
+		}
+	}
+}

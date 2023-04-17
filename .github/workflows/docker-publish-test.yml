@@ -13,19 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dockerfile: [barearm, zephyr]
+        variant: [barearm, zephyr]
     steps:
-      -
-        name: Login to GitHub Container Registry
+      - name: Checkout (GitHub)
+        uses: actions/checkout@v3
+      - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v2
+      - name: Pre-build image and push
+        uses: devcontainers/ci@v0.3
         with:
-          push: true
-          tags: ghcr.io/${{ github.repository }}:${{ matrix.dockerfile }}-test
-          file: Dockerfile.${{ matrix.dockerfile }}
+          subFolder: ${{ matrix.variant }}
+          imageName: ghcr.io/${{ github.repository }}
+          imageTag: ${{ matrix.variant }}-test
+          push: always
