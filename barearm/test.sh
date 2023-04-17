@@ -30,4 +30,4 @@ assert_raises "orbtop --version" 234
 
 assert "arm-none-eabi-gdb -batch -ex 'python print(\"OK\")'" "OK"
 
-assert_end dockerfile
+assert_end barearm

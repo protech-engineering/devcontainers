@@ -30,3 +30,4 @@ jobs:
           imageName: ghcr.io/${{ github.repository }}
           imageTag: ${{ matrix.variant }}-test
           push: always
+          runCmd: ./test.sh

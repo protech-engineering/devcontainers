@@ -36,8 +36,3 @@ RUN pip install pyocd==0.34.3
 
 # Orbuculum
 COPY --from=orbuculum_build	/orbuculum /
-
-# Test the container
-ADD test /opt/test
-ADD test/assert.sh /usr/local/bin/
-RUN /opt/test/barearm.sh
