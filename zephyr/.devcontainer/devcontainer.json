@@ -1,0 +1,41 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "../"
+	},
+	"privileged": true,
+	"mounts": [
+		"type=bind,source=/dev,target=/dev"
+	],
+	"remoteUser": "user",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": "true",
+			"upgradePackages": "true",
+			"username": "user"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"remote.autoForwardPorts": false,
+				"files.associations": {
+					"*.conf": "kconfig",
+				}
+			},
+			"extensions": [
+				"mhutchie.git-graph",
+				"eamodio.gitlens",
+				"ms-vscode.cpptools",
+				"ms-vscode.vscode-embedded-tools",
+				"trond-snekvik.gnu-mapfiles",
+				"dan-c-underwood.arm",
+				"ZixuanWang.linkerscript",
+				"ms-vscode.hexeditor",
+				"redhat.vscode-yaml",
+				"nordic-semiconductor.nrf-kconfig",
+				"nordic-semiconductor.nrf-devicetree"
+			]
+		}
+	}
+}

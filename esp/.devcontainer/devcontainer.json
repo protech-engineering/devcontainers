@@ -1,0 +1,40 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "../"
+	},
+	"privileged": true,
+	"mounts": [
+		"type=bind,source=/dev,target=/dev"
+	],
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": "true",
+			"username": "vscode",
+			"userUid": "1000",
+			"userGid": "1000",
+			"upgradePackages": "true"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"remote.autoForwardPorts": false,
+				"cmake.generator": "Ninja"
+			},
+			"extensions": [
+				"mhutchie.git-graph",
+				"eamodio.gitlens",
+				"ms-vscode.cpptools",
+				"ms-vscode.vscode-embedded-tools",
+				"trond-snekvik.gnu-mapfiles",
+				"dan-c-underwood.arm",
+				"ZixuanWang.linkerscript",
+				"ms-vscode.hexeditor",
+				// "ms-vscode.cmake-tools",
+				"twxs.cmake"
+			]
+		}
+	}
+}

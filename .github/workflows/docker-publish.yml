@@ -12,8 +12,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Tag preprocessing
+      - name: Tag preprocessing
         uses: actions/github-script@v6
         id: data
         with:
@@ -21,22 +20,24 @@ jobs:
             const tag = context.ref.replace('refs/tags/', '');
             const info = tag.split('-');
 
-            if (info.length != 2)
-              core.setFailed("Release/tag must contain only a single - (dash) character");
+            if (info.length < 2)
+              core.setFailed("Release/tag must contain at least a - (dash) character");
 
             core.exportVariable("TAG", tag);
-            core.exportVariable("DOCKERFILE", "Dockerfile." + info[0]);
-      -
-        name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+            core.exportVariable("FOLDER", info[0]);
+      - name: Checkout (GitHub)
+        uses: actions/checkout@v3
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v2
+      - name: Pre-build image and push
+        uses: devcontainers/ci@v0.3
         with:
-          push: true
-          tags: ghcr.io/${{ github.repository }}:${{ env.TAG }}
-          file: ${{ env.DOCKERFILE }}
+          subFolder: ${{ env.FOLDER }}
+          imageName: ghcr.io/${{ github.repository }}
+          imageTag: ${{ env.TAG }}
+          push: always
+          runCmd: ./test.sh
