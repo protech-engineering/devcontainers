@@ -20,8 +20,8 @@ jobs:
             const tag = context.ref.replace('refs/tags/', '');
             const info = tag.split('-');
 
-            if (info.length != 2)
-              core.setFailed("Release/tag must contain only a single - (dash) character");
+            if (info.length < 2)
+              core.setFailed("Release/tag must contain at least a - (dash) character");
 
             core.exportVariable("TAG", tag);
             core.exportVariable("FOLDER", info[0]);
