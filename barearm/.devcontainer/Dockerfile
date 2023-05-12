@@ -32,7 +32,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 	apt-get -y install stlink-tools
 
 # PyOCD
-RUN pip install pyocd==0.34.3
+RUN pip install pyocd==0.35.0
 
 # Orbuculum
 COPY --from=orbuculum_build	/orbuculum /
