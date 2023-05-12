@@ -1,4 +1,4 @@
-FROM espressif/idf:v5.0.1
+FROM espressif/idf:v5.0.2
 
 # Add non-root user
 RUN useradd -s /bin/bash -m vscode
