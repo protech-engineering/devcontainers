@@ -5,4 +5,7 @@ set -e
 
 . assert.sh
 
+# Test tools
+assert_raises "clangd --version"
+
 assert_end zephyr

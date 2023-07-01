@@ -15,6 +15,7 @@ assert_raises "cmake --version"
 
 # Test tools
 assert_raises "idf.py --version"
+assert_raises "clangd --version"
 
 # Test programming tools
 assert_raises "openocd --version"
