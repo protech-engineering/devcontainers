@@ -21,12 +21,21 @@
 		"vscode": {
 			"settings": {
 				"remote.autoForwardPorts": false,
-				"cmake.generator": "Ninja"
+				"cmake.generator": "Ninja",
+				// Disable microsoft c/c++ intellisense
+				"C_Cpp.intelliSenseEngine": "disabled",
+				// Default clangd arguments
+				"clangd.arguments": [
+					"--function-arg-placeholders=false",
+					"--query-driver=**",
+					"--header-insertion=never"
+				]
 			},
 			"extensions": [
 				"mhutchie.git-graph",
-				"eamodio.gitlens",
+				// "eamodio.gitlens",
 				"ms-vscode.cpptools",
+				"llvm-vs-code-extensions.vscode-clangd",
 				"ms-vscode.vscode-embedded-tools",
 				"trond-snekvik.gnu-mapfiles",
 				"dan-c-underwood.arm",

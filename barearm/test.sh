@@ -15,6 +15,7 @@ assert_raises "cmake --version"
 # Test tools
 assert_raises "bear --version"
 assert_raises "picocom --help"
+assert_raises "clangd --version"
 
 # Test programming tools
 assert_raises "pyocd --version"

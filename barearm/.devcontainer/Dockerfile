@@ -34,5 +34,11 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 # PyOCD
 RUN pip install pyocd==0.35.0
 
+# clangd (version 16.0.2)
+RUN mkdir /tmp/clangd && \
+	curl -sL -o /tmp/clangd/clangd.zip "https://github.com/clangd/clangd/releases/download/16.0.2/clangd-linux-16.0.2.zip" && \
+	unzip /tmp/clangd/clangd.zip -d /tmp/clangd && \
+	cp -r /tmp/clangd/clangd_16.0.2/* /usr/local/
+
 # Orbuculum
 COPY --from=orbuculum_build	/orbuculum /
