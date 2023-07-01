@@ -32,7 +32,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 	apt-get -y install stlink-tools
 
 # PyOCD
-RUN pip install pyocd==0.35.0
+RUN pip install pyocd==0.35.1
 
 # clangd (version 16.0.2)
 RUN mkdir /tmp/clangd && \
