@@ -4,7 +4,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 	apt-get -y install git build-essential curl libusb-1.0-0-dev libczmq-dev libncurses-dev meson libsdl2-dev
 
 RUN git clone --depth 1 --branch V2.1.0 https://github.com/orbcode/orbuculum.git orbuculum_build && \
-	cd orbuculum_build && meson setup build && \
+	cd orbuculum_build && meson setup --prefix=/usr build && \
 	meson compile -C build && \
 	DESTDIR=/orbuculum meson install -C build
 
