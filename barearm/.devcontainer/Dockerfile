@@ -34,6 +34,15 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 # PyOCD
 RUN pip install pyocd==0.35.1
 
+USER vscode
+
+RUN pyocd pack install stm32f7
+
+RUN cd ~/.local/share/cmsis-pack-manager/ && \
+	for file in $(find . -iname "*.pack"); do zipinfo -1 $file | sed '/^.*\(flm\|pdsc\|svd\|dbgconf\|sdf\)/Id' | xargs zip -d $file; done
+
+USER root
+
 # clangd (version 16.0.2)
 RUN mkdir /tmp/clangd && \
 	curl -sL -o /tmp/clangd/clangd.zip "https://github.com/clangd/clangd/releases/download/16.0.2/clangd-linux-16.0.2.zip" && \
