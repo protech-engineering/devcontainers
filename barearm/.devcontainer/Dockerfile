@@ -36,7 +36,7 @@ RUN pip install pyocd==0.35.1
 
 USER vscode
 
-RUN pyocd pack install stm32f7
+RUN pyocd pack install stm32
 
 RUN cd ~/.local/share/cmsis-pack-manager/ && \
 	for file in $(find . -iname "*.pack"); do zipinfo -1 $file | sed '/^.*\(flm\|pdsc\|svd\|dbgconf\|sdf\)/Id' | xargs zip -d $file; done
