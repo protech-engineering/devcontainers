@@ -49,6 +49,8 @@ To use a devcontainer inside your project you have to:
 | Name | Tagging convention | Notes |
 |------|--------------------|-------|
 | barearm | `barearm-[ARM toolchain version]` | This image implements basic support for ARM bare metal targets. Usually contains GCC, OpenOCD, PyOCD, st-link |
+| esp | *still in beta* | This image inherits the ESP32 docker image and adds our default tools and devcontainer settings |
+| zephyr | *still in beta* | This image inherits the zephyr docker image and adds our default tools and devcontainer settings |
 
 ## <a name='Dockerfilenomenclature'></a>Dockerfile nomenclature
 
@@ -81,6 +83,8 @@ Variant names and versions must not contain any `-` character (dash), because it
 ## <a name='Developmentguides'></a>Development guides
 
 ### <a name='Modifyinganimage'></a>Modifying an image
+
+> In the following text, replace `[variant]` with the image name that you are modifying (e.g. `barearm`, `esp`, `zephyr`). Remember that each variant is saved inside a folder with the same name.
 
 1. Do the needed modifications on the specific Dockerfile
 2. To test the image you can either:
