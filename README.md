@@ -1,10 +1,29 @@
 # Devcontainer/docker images for development
 
+<!-- vscode-markdown-toc -->
+* [Usage](#Usage)
+* [Image variants](#Imagevariants)
+* [Dockerfile nomenclature](#Dockerfilenomenclature)
+	* [Folder contents](#Foldercontents)
+* [Image building](#Imagebuilding)
+* [Development guides](#Developmentguides)
+	* [Modifying an image](#Modifyinganimage)
+	* [Releasing an image](#Releasinganimage)
+	* [Choosing a base image](#Choosingabaseimage)
+
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
 In this repository are archived many variants of Dockerfiles used internally at Protech Engineering to provide ready-to-go and reproducible build environments.
 
 All images are created using VSCode devcontainers.
 
-## Usage
+
+
+## <a name='Usage'></a>Usage
 
 To use these devcontainers you have to, **ONLY THE FIRST TIME**:
 
@@ -25,17 +44,17 @@ To use a devcontainer inside your project you have to:
 	```
 3. Open the command palette (`CTRL+SHIFT+P` or `F1`), search and run "Dev Containers: Reopen in Container".
 
-## Image variants
+## <a name='Imagevariants'></a>Image variants
 
 | Name | Tagging convention | Notes |
 |------|--------------------|-------|
 | barearm | `barearm-[ARM toolchain version]` | This image implements basic support for ARM bare metal targets. Usually contains GCC, OpenOCD, PyOCD, st-link |
 
-## Dockerfile nomenclature
+## <a name='Dockerfilenomenclature'></a>Dockerfile nomenclature
 
 For each variant is present a folder with the corresponding name inside the root of the repository.
 
-### Folder contents
+### <a name='Foldercontents'></a>Folder contents
 
 Each folder contains everything that is necessary to build an image. The structure of each of these folders is of a devcontainer project (i.e. instead of using the prebuilt images, you could place the contents of this folder in your project and achieve the same result)
 
@@ -47,7 +66,7 @@ It normally is:
 * A `assert.sh` file, that contains the test library used to check if all the tools are present and working inside the image
 * A `test.sh` file, that contains the test suite and is executed after the image is built by the CI, before pushing it to the public.
 
-## Image building
+## <a name='Imagebuilding'></a>Image building
 
 Images are automatically built whenever a new tag is published, and are available from the GitHub Container Registry.
 
@@ -59,9 +78,9 @@ A push of the tag `[variant]-[version]` triggers a build for the `[variant]` ver
 
 Variant names and versions must not contain any `-` character (dash), because it is used as a separator between variant and version in the tag name.
 
-## Development guides
+## <a name='Developmentguides'></a>Development guides
 
-### Modifying an image
+### <a name='Modifyinganimage'></a>Modifying an image
 
 1. Do the needed modifications on the specific Dockerfile
 2. To test the image you can either:
@@ -89,10 +108,10 @@ Variant names and versions must not contain any `-` character (dash), because it
 		$ npx @devcontainers/cli exec --workspace-folder [variant] bash
 		```
 
-### Releasing an image
+### <a name='Releasinganimage'></a>Releasing an image
 
 At this point you should have:
-1. Done all the steps described in [Modifying an image](#modifying-an-image)
+1. Done all the steps described in [Modifying an image](#Modifyinganimage)
 2. Verified that everything is working
 3. Used the (test) image in a project for a few weeks, and not found any problems
 
@@ -123,7 +142,7 @@ If everything is done you can release a new stable image:
 	$ docker pull ghcr.io/protech-engineering/devcontainers:[variant]-[version]
 	```
 
-### Choosing a base image
+### <a name='Choosingabaseimage'></a>Choosing a base image
 
 * For embedded targeted images: always choose `mcr.microsoft.com/devcontainers/base`, with the Ubuntu variant. For the version tag, use the semantic versioning, e.g. `1.0.8-jammy` or `1.0.8-ubuntu-22.04`. When choosing the ubuntu versions you must choose an LTS:
 	```dockerfile
