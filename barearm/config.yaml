@@ -1,0 +1,5 @@
+CompileFlags:
+  Add:
+    - D__CLANGD__
+  Remove:
+    - -fno-isolate-erroneous-paths-dereference

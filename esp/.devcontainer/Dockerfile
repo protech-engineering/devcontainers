@@ -16,4 +16,7 @@ USER vscode
 # Trust ESP git folders
 RUN git config --global --add safe.directory "*"
 
+# Clangd default configuration
+COPY config.yaml $HOME/.config/clangd/config.yaml
+
 USER root

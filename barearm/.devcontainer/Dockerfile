@@ -53,6 +53,9 @@ RUN pyocd pack install stm32 nrf51 && \
 	cd ~/.local/share/cmsis-pack-manager/ && \
 	for file in $(find . -iname "*.pack"); do zipinfo -1 $file | sed '/^.*\(flm\|pdsc\|svd\|dbgconf\|sdf\)/Id' | xargs zip -d $file; done
 
+# Clangd default configuration
+COPY config.yaml $HOME/.config/clangd/config.yaml
+
 USER root
 
 # clangd (version 16.0.2)
