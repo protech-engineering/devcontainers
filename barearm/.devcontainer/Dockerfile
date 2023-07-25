@@ -63,7 +63,7 @@ RUN mkdir /tmp/clangd && \
 	rm /tmp/clangd -rf
 
 # Clangd default configuration
-COPY config.yaml /home/vscode/.config/clangd/config.yaml
+COPY --chown=vscode:vscode config.yaml /home/vscode/.config/clangd/config.yaml
 
 # Orbuculum
 COPY --from=orbuculum_build	/orbuculum /

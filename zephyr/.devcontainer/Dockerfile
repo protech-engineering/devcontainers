@@ -10,6 +10,6 @@ RUN mkdir /tmp/clangd && \
 	cp -r /tmp/clangd/clangd_16.0.2/* /usr/local/
 
 # Clangd default configuration
-COPY config.yaml /home/user/.config/clangd/config.yaml
+COPY --chown=user:user config.yaml /home/user/.config/clangd/config.yaml
 
 RUN chsh --shell /bin/bash user

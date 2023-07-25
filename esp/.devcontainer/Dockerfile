@@ -10,7 +10,7 @@ RUN mkdir /tmp/clangd && \
 RUN useradd -s /bin/bash -m vscode
 
 # Clangd default configuration
-COPY config.yaml /home/vscode/.config/clangd/config.yaml
+COPY --chown=vscode:vscode config.yaml /home/vscode/.config/clangd/config.yaml
 
 COPY 02-esp.sh /etc/profile.d/
 
