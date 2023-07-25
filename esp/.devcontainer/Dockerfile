@@ -9,14 +9,14 @@ RUN mkdir /tmp/clangd && \
 # Add non-root user
 RUN useradd -s /bin/bash -m vscode
 
+# Clangd default configuration
+COPY config.yaml /home/vscode/.config/clangd/config.yaml
+
 COPY 02-esp.sh /etc/profile.d/
 
 USER vscode
 
 # Trust ESP git folders
 RUN git config --global --add safe.directory "*"
-
-# Clangd default configuration
-COPY config.yaml $HOME/.config/clangd/config.yaml
 
 USER root

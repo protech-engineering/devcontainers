@@ -9,11 +9,7 @@ RUN mkdir /tmp/clangd && \
 	unzip /tmp/clangd/clangd.zip -d /tmp/clangd && \
 	cp -r /tmp/clangd/clangd_16.0.2/* /usr/local/
 
-USER user
-
 # Clangd default configuration
-COPY config.yaml $HOME/.config/clangd/config.yaml
-
-USER root
+COPY config.yaml /home/user/.config/clangd/config.yaml
 
 RUN chsh --shell /bin/bash user

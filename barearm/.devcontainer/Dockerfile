@@ -53,9 +53,6 @@ RUN pyocd pack install stm32 nrf51 && \
 	cd ~/.local/share/cmsis-pack-manager/ && \
 	for file in $(find . -iname "*.pack"); do zipinfo -1 $file | sed '/^.*\(flm\|pdsc\|svd\|dbgconf\|sdf\)/Id' | xargs zip -d $file; done
 
-# Clangd default configuration
-COPY config.yaml $HOME/.config/clangd/config.yaml
-
 USER root
 
 # clangd (version 16.0.2)
@@ -64,6 +61,9 @@ RUN mkdir /tmp/clangd && \
 	unzip /tmp/clangd/clangd.zip -d /tmp/clangd && \
 	cp -r /tmp/clangd/clangd_16.0.2/* /usr/local/ && \
 	rm /tmp/clangd -rf
+
+# Clangd default configuration
+COPY config.yaml /home/vscode/.config/clangd/config.yaml
 
 # Orbuculum
 COPY --from=orbuculum_build	/orbuculum /
