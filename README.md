@@ -36,7 +36,7 @@ To use these devcontainers you have to, **ONLY THE FIRST TIME**:
 To use a devcontainer inside your project you have to:
 
 1. Create a `.devcontainer` folder at the root of the project.
-2. In this folder add a `.devcontainer.json`, with the following content:
+2. In this folder add a `devcontainer.json`, with the following content:
 	```json
 	{
 		"image": "ghcr.io/protech-engineering/devcontainers:barearm-12.2.Rel1"
