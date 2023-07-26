@@ -39,7 +39,7 @@ To use a devcontainer inside your project you have to:
 2. In this folder add a `.devcontainer.json`, with the following content:
 	```json
 	{
-		"image": "ghcr.io/protech-engineering/devcontainers:barearm-11.3.Rel1"
+		"image": "ghcr.io/protech-engineering/devcontainers:barearm-12.2.Rel1"
 	}
 	```
 3. Open the command palette (`CTRL+SHIFT+P` or `F1`), search and run "Dev Containers: Reopen in Container".
