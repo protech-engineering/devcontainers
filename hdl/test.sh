@@ -29,6 +29,6 @@ assert_raises "vvp -V"
 # Programming tools
 assert_raises "openocd --version"
 assert_raises "openocd -c 'adapter driver dummy' -c 'shutdown'"
-assert_raises "openFPGAloader --Version"
+assert_raises "openFPGALoader --Version"
 
 assert_end hdl
