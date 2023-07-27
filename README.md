@@ -46,11 +46,12 @@ To use a devcontainer inside your project you have to:
 
 ## <a name='Imagevariants'></a>Image variants
 
-| Name | Tagging convention | Notes |
-|------|--------------------|-------|
-| barearm | `barearm-[ARM toolchain version]` | This image implements basic support for ARM bare metal targets. Usually contains GCC, OpenOCD, PyOCD, st-link |
-| esp | *still in beta* | This image inherits the ESP32 docker image and adds our default tools and devcontainer settings |
-| zephyr | *still in beta* | This image inherits the zephyr docker image and adds our default tools and devcontainer settings |
+| Name | Tagging convention | Latest version | Notes |
+|------|--------------------|----------------|------|
+| barearm | `barearm-[ARM toolchain version]` | `12.2.Rel1` | This image implements basic support for ARM bare metal targets. The latest version contains: <br><ul><li>ARM GCC 12.2.Rel1 (arm-none-eabi)</li><li>OpenOCD 0.12.0-1</li><li>st-link 1.7.0</li><li>pyocd 0.35.1</li><li>pyocd packs for ST and nRF</li><li>python 3.8 and 3.10</li><li>STM32CubeProgrammer 2.13.0 (CLI)</li><li>orbuculum 2.1.0</li><li>clangd 16.0.2</li></ul> |
+| esp | *still in beta* | NA | This image inherits the ESP32 docker image and adds our default tools and devcontainer settings |
+| zephyr | *still in beta* | NA | This image inherits the zephyr docker image and adds our default tools and devcontainer settings |
+| hdl | *still in beta* | NA | This image inherits the `hdl-containers/impl` image and contains tools for FPGA development with an open source toolchain |
 
 ## <a name='Dockerfilenomenclature'></a>Dockerfile nomenclature
 
