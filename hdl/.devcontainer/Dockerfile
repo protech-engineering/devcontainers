@@ -1,4 +1,4 @@
-ARG REGISTRY=gcr.io/hdl-containers/debian/bullseye
+ARG REGISTRY=gcr.io/hdl-containers/debian/bookworm
 
 FROM $REGISTRY/pkg/iverilog as pkg-iverilog
 FROM $REGISTRY/pkg/openfpgaloader as pkg-openfpgaloader
@@ -11,6 +11,8 @@ RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -y install --no
 	libftdi1-2 \
 	libhidapi-hidraw0 \
 	usbutils \
+	gcc-riscv64-unknown-elf \
+	gdb-multiarch \
 	&& apt-get autoclean && apt-get clean && apt-get -y autoremove \
 	&& rm -rf /var/lib/apt/lists/*
 
