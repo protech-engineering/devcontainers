@@ -29,7 +29,22 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 	apt-get -y install stlink-tools
 
 # PyOCD
-RUN pip install pyocd==0.34.3
+RUN pip install pyocd==0.35.1
+
+USER vscode
+
+RUN pyocd pack install stm32 nrf51 && \
+	cd ~/.local/share/cmsis-pack-manager/ && \
+	for file in $(find . -iname "*.pack"); do zipinfo -1 $file | sed '/^.*\(flm\|pdsc\|svd\|dbgconf\|sdf\)/Id' | xargs zip -d $file; done
+
+USER root
+
+# clangd (version 16.0.2)
+RUN mkdir /tmp/clangd && \
+	curl -sL -o /tmp/clangd/clangd.zip "https://github.com/clangd/clangd/releases/download/16.0.2/clangd-linux-16.0.2.zip" && \
+	unzip /tmp/clangd/clangd.zip -d /tmp/clangd && \
+	cp -r /tmp/clangd/clangd_16.0.2/* /usr/local/ && \
+	rm /tmp/clangd -rf
 
 # Orbuculum
 COPY --from=orbuculum_build	/orbuculum /
