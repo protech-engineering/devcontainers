@@ -13,7 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        variant: [barearm, zephyr, esp, hdl]
+        variant:
+          - barearm
+          # - zephyr
+          - esp
+          - hdl
     steps:
       - name: Checkout (GitHub)
         uses: actions/checkout@v3
