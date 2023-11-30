@@ -59,7 +59,7 @@ USER root
 RUN mkdir /tmp/clangd && \
 	curl -sL -o /tmp/clangd/clangd.zip "https://github.com/clangd/clangd/releases/download/17.0.3/clangd-linux-17.0.3.zip" && \
 	unzip /tmp/clangd/clangd.zip -d /tmp/clangd && \
-	cp -r /tmp/clangd/clangd_16.0.2/* /usr/local/ && \
+	cp -r /tmp/clangd/clangd_17.0.3/* /usr/local/ && \
 	rm /tmp/clangd -rf
 
 # Clangd default configuration
