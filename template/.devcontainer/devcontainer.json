@@ -1,0 +1,37 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "../"
+	},
+	"privileged": true,
+	"mounts": [
+		"type=bind,source=/dev,target=/dev"
+	],
+	"remoteUser": "vscode",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"remote.autoForwardPorts": false,
+				// Disable microsoft c/c++ intellisense
+				"C_Cpp.intelliSenseEngine": "disabled",
+				// Default clangd arguments
+				"clangd.arguments": [
+					"--function-arg-placeholders=false",
+					"--query-driver=**",
+					"--header-insertion=never"
+				]
+			},
+			"extensions": [
+				"mhutchie.git-graph",
+				// "eamodio.gitlens",
+				"ms-vscode.cpptools",
+				"llvm-vs-code-extensions.vscode-clangd",
+				"ms-vscode.vscode-embedded-tools",
+				"trond-snekvik.gnu-mapfiles",
+				"dan-c-underwood.arm",
+				"ZixuanWang.linkerscript",
+				"ms-vscode.hexeditor"
+			]
+		}
+	}
+}

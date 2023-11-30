@@ -1,0 +1,49 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "../"
+	},
+	"privileged": true,
+	"mounts": [
+		"type=bind,source=/dev,target=/dev"
+	],
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": "true",
+			"username": "vscode",
+			"userUid": "1000",
+			"userGid": "1000",
+			"upgradePackages": "true"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"remote.autoForwardPorts": false,
+				"cmake.generator": "Ninja",
+				// Disable microsoft c/c++ intellisense
+				"C_Cpp.intelliSenseEngine": "disabled",
+				// Default clangd arguments
+				"clangd.arguments": [
+					"--function-arg-placeholders=false",
+					"--query-driver=**",
+					"--header-insertion=never"
+				]
+			},
+			"extensions": [
+				"mhutchie.git-graph",
+				// "eamodio.gitlens",
+				"ms-vscode.cpptools",
+				"llvm-vs-code-extensions.vscode-clangd",
+				"ms-vscode.vscode-embedded-tools",
+				"trond-snekvik.gnu-mapfiles",
+				"dan-c-underwood.arm",
+				"ZixuanWang.linkerscript",
+				"ms-vscode.hexeditor",
+				// "ms-vscode.cmake-tools",
+				"twxs.cmake"
+			]
+		}
+	}
+}

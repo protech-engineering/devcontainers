@@ -1,0 +1,31 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "../"
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": "true",
+			"upgradePackages": "true",
+			"username": "vscode"
+		}
+	},
+	"remoteUser": "vscode",
+	"privileged": true,
+	"mounts": [
+		"type=bind,source=/dev,target=/dev"
+	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"remote.autoForwardPorts": false
+			},
+			"extensions": [
+				"mhutchie.git-graph",
+				// "eamodio.gitlens",
+				"ms-vscode.hexeditor",
+				"ms-python.python"
+			]
+		}
+	}
+}

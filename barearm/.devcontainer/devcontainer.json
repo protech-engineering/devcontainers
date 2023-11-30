@@ -1,0 +1,58 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "../"
+	},
+	"privileged": true,
+	"mounts": [
+		"type=bind,source=/dev,target=/dev"
+	],
+	"remoteUser": "vscode",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"remote.autoForwardPorts": false,
+				// Disable microsoft c/c++ intellisense
+				"C_Cpp.intelliSenseEngine": "disabled",
+				// Default clangd arguments
+				"clangd.arguments": [
+					"--function-arg-placeholders=false",
+					"--query-driver=**",
+					"--header-insertion=never"
+				],
+				"editor.semanticTokenColorCustomizations": {
+					"[Default Dark+]": {
+						"rules": {
+							"comment:cpp": "#707070",
+							"comment:c": "#707070"
+						}
+					},
+					"[Default Dark Modern]": {
+						"rules": {
+							"comment:cpp": "#707070",
+							"comment:c": "#707070"
+						}
+					}
+				},
+				"terminal.integrated.env.linux": {
+					"EDITOR": "code --wait"
+				},
+				"git.autoStash": true,
+				"files.associations": {
+					".clangd": "yaml"
+				}
+			},
+			"extensions": [
+				"mhutchie.git-graph",
+				// "eamodio.gitlens",
+				"ms-vscode.cpptools",
+				"llvm-vs-code-extensions.vscode-clangd",
+				"ms-vscode.vscode-embedded-tools",
+				"trond-snekvik.gnu-mapfiles",
+				"dan-c-underwood.arm",
+				"ZixuanWang.linkerscript",
+				"ms-vscode.hexeditor"
+			]
+		}
+	}
+}
