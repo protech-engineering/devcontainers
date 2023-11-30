@@ -33,7 +33,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 	&& rm -rf /var/lib/apt/lists/*
 
 # ARM GCC Compiler
-RUN curl -sL "https://developer.arm.com/-/media/Files/downloads/gnu/12.2.rel1/binrel/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi.tar.xz" | tar -xJf - -C /usr/local --strip-components=1
+RUN curl -sL "https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz" | tar -xJf - -C /usr/local --strip-components=1
 
 # OpenOCD (version 0.12.0-1)
 RUN mkdir /opt/openocd && \
@@ -45,7 +45,7 @@ ADD stm32cubeprogrammer /opt/stm32cubeprogrammer
 RUN ln -s /opt/stm32cubeprogrammer/bin/STM32_Programmer_CLI /usr/local/bin/STM32_Programmer_CLI
 
 # PyOCD
-RUN pip install pyocd==0.35.1
+RUN pip install pyocd==0.36.0
 
 USER vscode
 
@@ -55,9 +55,9 @@ RUN pyocd pack install stm32 nrf51 && \
 
 USER root
 
-# clangd (version 16.0.2)
+# clangd (version 17.0.3)
 RUN mkdir /tmp/clangd && \
-	curl -sL -o /tmp/clangd/clangd.zip "https://github.com/clangd/clangd/releases/download/16.0.2/clangd-linux-16.0.2.zip" && \
+	curl -sL -o /tmp/clangd/clangd.zip "https://github.com/clangd/clangd/releases/download/17.0.3/clangd-linux-17.0.3.zip" && \
 	unzip /tmp/clangd/clangd.zip -d /tmp/clangd && \
 	cp -r /tmp/clangd/clangd_16.0.2/* /usr/local/ && \
 	rm /tmp/clangd -rf
