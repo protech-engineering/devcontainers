@@ -29,6 +29,6 @@ assert_raises "STM32_Programmer_CLI --version"
 assert_raises "orbcat --version" 255
 assert_raises "orbtop --version" 234
 
-assert "arm-none-eabi-gdb -batch -ex 'python print(\"OK\")'" "OK"
+assert "arm-none-eabi-gdb-py -batch -ex 'python print(\"OK\")'" "OK"
 
 assert_end barearm

@@ -22,8 +22,10 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 	xz-utils \
 	python3-pip \
 	telnet \
+	libncurses5 \
 	libncursesw5 \
-	python3.8 \
+	python2.7 \
+	libpython2.7 \
 	libusb-1.0 \
 	libczmq4 \
 	libncurses6 \
@@ -33,7 +35,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 	&& rm -rf /var/lib/apt/lists/*
 
 # ARM GCC Compiler
-RUN curl -sL "https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz" | tar -xJf - -C /usr/local --strip-components=1
+RUN curl -sL "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2" | tar -xjf - -C /usr/local --strip-components=1
 
 # OpenOCD (version 0.12.0-1)
 RUN mkdir /opt/openocd && \
