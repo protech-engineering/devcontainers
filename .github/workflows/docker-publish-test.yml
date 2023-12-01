@@ -15,9 +15,11 @@ jobs:
       matrix:
         variant:
           - barearm
+          - barearmgui
           # - zephyr
           - esp
           - hdl
+      max-parallel: 1
     steps:
       - name: Checkout (GitHub)
         uses: actions/checkout@v3
