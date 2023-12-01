@@ -20,20 +20,7 @@
 					"--query-driver=**",
 					"--header-insertion=never"
 				],
-				"editor.semanticTokenColorCustomizations": {
-					"[Default Dark+]": {
-						"rules": {
-							"comment:cpp": "#707070",
-							"comment:c": "#707070"
-						}
-					},
-					"[Default Dark Modern]": {
-						"rules": {
-							"comment:cpp": "#707070",
-							"comment:c": "#707070"
-						}
-					}
-				},
+				"clangd.path": "/usr/local/bin/clangd",
 				"terminal.integrated.env.linux": {
 					"EDITOR": "code --wait"
 				},
