@@ -1,4 +1,4 @@
-FROM ghcr.io/protech-engineering/devcontainers:barearm-11.3.Rel1-C
+FROM ghcr.io/protech-engineering/devcontainers:barearm-11.3.Rel1-D
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 	apt-get -y install \
