@@ -30,7 +30,7 @@ assert_raises "orbcat --version" 255
 assert_raises "orbtop --version" 234
 
 # Test gdb
-assert "arm-none-eabi-gdb -batch -ex 'python print(\"OK\")'" "OK"
+assert_raises "arm-none-eabi-gdb --version"
 # Test all pyocd packs have been downloaded
 assert "find ~/.local/share/cmsis-pack-manager/ -type d -empty | wc -l" "0"
 

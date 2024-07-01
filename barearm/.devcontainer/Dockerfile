@@ -27,13 +27,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 	libusb-1.0 \
 	libczmq4 \
 	libncurses6 \
+	libncurses5 \
 	libglib2.0-0 \
 	cmake \
 	stlink-tools \
 	&& rm -rf /var/lib/apt/lists/*
 
 # ARM GCC Compiler
-RUN curl -sL "https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz" | tar -xJf - -C /usr/local --strip-components=1
+RUN curl -sL "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2" | tar -xjf - -C /usr/local --strip-components=1
 
 # OpenOCD (version 0.12.0-1)
 RUN mkdir /opt/openocd && \
