@@ -16,6 +16,7 @@ jobs:
         variant:
           - barearm
           - barearmgui
+          - barearmnordic
           # - zephyr
           - esp
           - hdl
