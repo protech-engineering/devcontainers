@@ -68,3 +68,9 @@ COPY --chown=vscode:vscode config.yaml /home/vscode/.config/clangd/config.yaml
 
 # Orbuculum
 COPY --from=orbuculum_build	/orbuculum /
+
+# Enable 32 bit architecture
+RUN dpkg --add-architecture i386 && \
+	apt-get update && export DEBIAN_FRONTEND=noninteractive && \
+	apt-get -y install libc6:i386 libncurses5:i386 libstdc++6:i386 && \
+	rm -rf /var/lib/apt/lists/*
