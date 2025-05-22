@@ -39,7 +39,7 @@ To use a devcontainer inside your project you have to:
 2. In this folder add a `devcontainer.json`, with the following content:
 	```json
 	{
-		"image": "ghcr.io/protech-engineering/devcontainers:barearm-12.2.Rel1"
+		"image": "ghcr.io/protech-engineering/devcontainers:barearm-14.2.Rel1"
 	}
 	```
 3. Open the command palette (`CTRL+SHIFT+P` or `F1`), search and run "Dev Containers: Reopen in Container".
@@ -48,7 +48,7 @@ To use a devcontainer inside your project you have to:
 
 | Name | Tagging convention | Latest version | Notes |
 |------|--------------------|----------------|------|
-| barearm | `barearm-[ARM toolchain version]` | `12.2.Rel1` | This image implements basic support for ARM bare metal targets. The latest version contains: <br><ul><li>ARM GCC 12.2.Rel1 (arm-none-eabi)</li><li>OpenOCD 0.12.0-1</li><li>st-link 1.7.0</li><li>pyocd 0.35.1</li><li>pyocd packs for ST and nRF</li><li>python 3.8 and 3.10</li><li>STM32CubeProgrammer 2.13.0 (CLI)</li><li>orbuculum 2.1.0</li><li>clangd 16.0.2</li></ul> |
+| barearm | `barearm-[ARM toolchain version]` | `14.2.Rel1` | This image implements basic support for ARM bare metal targets. The latest version contains: <br><ul><li>ARM GCC 14.2.Rel1 (arm-none-eabi)</li><li>OpenOCD 0.12.0-6</li><li>st-link 1.8.0</li><li>pyocd 0.36.0</li><li>pyocd packs for ST and nRF</li><li>python 3.8 and 3.12</li><li>STM32CubeProgrammer 2.13.0 (CLI)</li><li>orbuculum 2.2.0</li><li>clangd 20.0.1</li></ul> |
 | barearmgui | `barearmgui-[ARM toolchain version]` | `11.3.Rel1` | This image inherits the `barearm` image. The latest version contains the following additional packages for GUI development: <br><ul><li>GCC 11.3.0 (x86-64)</li><li>mingw w64 10-win32</li><li>SDL2 + Image module (native + mingw)</li><li>Emscripten 3.1.5</li></ul> |
 | barearmnordic | `barearmnordic-[ARM toolchain version]` | `9_2019_q4_major` | This image inherits the `barearm` image. The latest version contains the following additional packages for nRF-SDK (old version) development: <br><ul><li>protobuf 3.19.0</li><li>nrfutil 6.1.6</li><li>ble-serial</li></ul> |
 | esp | *still in beta* | NA | This image inherits the ESP32 docker image and adds our default tools and devcontainer settings |
@@ -106,7 +106,7 @@ Variant names and versions must not contain any `-` character (dash), because it
 		Now you can start the image with the command:
 
 		```bash
-		$ npx @devcontainers/cli up --workspace-folder [variant]
+		$ npx @devcontainers/cli up --remove-existing-container --workspace-folder [variant]
 		```
 
 		And execute a command (for example starting a shell to explore the contents):
