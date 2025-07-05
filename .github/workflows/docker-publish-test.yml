@@ -19,7 +19,7 @@ jobs:
           - barearmnordic
           - zephyr
           - esp
-          - hdl
+          # - hdl
       max-parallel: 1
     steps:
       - name: Checkout (GitHub)
