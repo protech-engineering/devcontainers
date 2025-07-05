@@ -4,9 +4,7 @@
 		"context": "../"
 	},
 	"privileged": true,
-	"mounts": [
-		"type=bind,source=/dev,target=/dev"
-	],
+	"mounts": ["type=bind,source=/dev,target=/dev"],
 	"remoteUser": "user",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
@@ -21,6 +19,7 @@
 				"remote.autoForwardPorts": false,
 				"files.associations": {
 					"*.conf": "kconfig",
+					".clangd": "yaml"
 				},
 				// Disable microsoft c/c++ intellisense
 				"C_Cpp.intelliSenseEngine": "disabled",
@@ -29,7 +28,25 @@
 					"--function-arg-placeholders=false",
 					"--query-driver=**",
 					"--header-insertion=never"
-				]
+				],
+				"editor.semanticTokenColorCustomizations": {
+					"[Default Dark+]": {
+						"rules": {
+							"comment:cpp": "#707070",
+							"comment:c": "#707070"
+						}
+					},
+					"[Default Dark Modern]": {
+						"rules": {
+							"comment:cpp": "#707070",
+							"comment:c": "#707070"
+						}
+					}
+				},
+				"terminal.integrated.env.linux": {
+					"EDITOR": "code --wait"
+				},
+				"git.autoStash": true
 			},
 			"extensions": [
 				"mhutchie.git-graph",

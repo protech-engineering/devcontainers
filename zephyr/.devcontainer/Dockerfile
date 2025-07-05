@@ -1,13 +1,15 @@
-FROM ghcr.io/zephyrproject-rtos/ci:v0.26.1
+FROM ghcr.io/zephyrproject-rtos/ci:v0.28.2
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
-	apt-get -y install curl
+	apt-get -y install curl \
+	&& rm -rf /var/lib/apt/lists/*
 
-# clangd (version 16.0.2)
+# clangd (version 20.1.0)
 RUN mkdir /tmp/clangd && \
-	curl -sL -o /tmp/clangd/clangd.zip "https://github.com/clangd/clangd/releases/download/16.0.2/clangd-linux-16.0.2.zip" && \
+	curl -sL -o /tmp/clangd/clangd.zip "https://github.com/clangd/clangd/releases/download/20.1.0/clangd-linux-20.1.0.zip" && \
 	unzip /tmp/clangd/clangd.zip -d /tmp/clangd && \
-	cp -r /tmp/clangd/clangd_16.0.2/* /usr/local/
+	cp -r /tmp/clangd/clangd_20.1.0/* /usr/local/ && \
+	rm /tmp/clangd -rf
 
 # Clangd default configuration
 COPY --chown=user:user config.yaml /home/user/.config/clangd/config.yaml

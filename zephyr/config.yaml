@@ -3,3 +3,6 @@ CompileFlags:
     - -D__CLANGD__
   Remove:
     - -fno-isolate-erroneous-paths-dereference
+Diagnostics:
+  UnusedIncludes: None
+  MissingIncludes: None
