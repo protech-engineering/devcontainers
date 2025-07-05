@@ -14,10 +14,10 @@ jobs:
     strategy:
       matrix:
         variant:
+          - zephyr
           - barearm
           - barearmgui
           - barearmnordic
-          # - zephyr
           - esp
           # - hdl
       max-parallel: 1

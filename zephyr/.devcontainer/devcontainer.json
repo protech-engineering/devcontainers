@@ -6,6 +6,8 @@
 	"privileged": true,
 	"mounts": ["type=bind,source=/dev,target=/dev"],
 	"remoteUser": "user",
+	"workspaceFolder": "/workspaces",
+	"postAttachCommand": "sudo chown user:user /workspaces",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"installZsh": "true",

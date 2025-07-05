@@ -1,4 +1,4 @@
-FROM ghcr.io/zephyrproject-rtos/ci:v0.28.2
+FROM ghcr.io/zephyrproject-rtos/ci:v0.27.5
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 	apt-get -y install curl \
