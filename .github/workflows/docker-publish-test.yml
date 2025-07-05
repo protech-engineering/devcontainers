@@ -37,4 +37,4 @@ jobs:
           imageName: ghcr.io/${{ github.repository }}
           imageTag: ${{ matrix.variant }}-test
           push: always
-          runCmd: /workspaces/${{ matrix.variant }}/test.sh
+          runCmd: cd /workspaces/devcontainers/${{ matrix.variant }} && ./test.sh

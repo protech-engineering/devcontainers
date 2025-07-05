@@ -40,4 +40,4 @@ jobs:
           imageName: ghcr.io/${{ github.repository }}
           imageTag: ${{ env.TAG }}
           push: always
-          runCmd: /workspaces/${{ env.FOLDER }}/test.sh
+          runCmd: cd /workspaces/devcontainers/${{ env.FOLDER }} && ./test.sh
