@@ -1,22 +1,15 @@
-FROM espressif/idf:v5.0.2
+FROM espressif/idf:v5.4.2
 
-# clangd (version 16.0.2)
+ENV IDF_GIT_SAFE_DIR="*"
+
+# clangd (version 20.1.0)
 RUN mkdir /tmp/clangd && \
-	curl -sL -o /tmp/clangd/clangd.zip "https://github.com/clangd/clangd/releases/download/16.0.2/clangd-linux-16.0.2.zip" && \
+	curl -sL -o /tmp/clangd/clangd.zip "https://github.com/clangd/clangd/releases/download/20.1.0/clangd-linux-20.1.0.zip" && \
 	unzip /tmp/clangd/clangd.zip -d /tmp/clangd && \
-	cp -r /tmp/clangd/clangd_16.0.2/* /usr/local/
-
-# Add non-root user
-RUN useradd -s /bin/bash -m vscode
-
-# Clangd default configuration
-COPY --chown=vscode:vscode config.yaml /home/vscode/.config/clangd/config.yaml
+	cp -r /tmp/clangd/clangd_20.1.0/* /usr/local/ && \
+	rm -rf /tmp/clangd
 
 COPY 02-esp.sh /etc/profile.d/
 
-USER vscode
-
-# Trust ESP git folders
-RUN git config --global --add safe.directory "*"
-
-USER root
+# Clangd default configuration
+COPY --chown=ubuntu:ubuntu config.yaml /home/ubuntu/.config/clangd/config.yaml

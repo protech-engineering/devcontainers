@@ -4,16 +4,10 @@
 		"context": "../"
 	},
 	"privileged": true,
-	"mounts": [
-		"type=bind,source=/dev,target=/dev"
-	],
-	"remoteUser": "vscode",
+	"mounts": ["type=bind,source=/dev,target=/dev"],
+	"remoteUser": "ubuntu",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
-			"installZsh": "true",
-			"username": "vscode",
-			"userUid": "1000",
-			"userGid": "1000",
 			"upgradePackages": "true"
 		}
 	},
@@ -21,7 +15,6 @@
 		"vscode": {
 			"settings": {
 				"remote.autoForwardPorts": false,
-				"cmake.generator": "Ninja",
 				// Disable microsoft c/c++ intellisense
 				"C_Cpp.intelliSenseEngine": "disabled",
 				// Default clangd arguments
@@ -29,7 +22,28 @@
 					"--function-arg-placeholders=false",
 					"--query-driver=**",
 					"--header-insertion=never"
-				]
+				],
+				"editor.semanticTokenColorCustomizations": {
+					"[Default Dark+]": {
+						"rules": {
+							"comment:cpp": "#707070",
+							"comment:c": "#707070"
+						}
+					},
+					"[Default Dark Modern]": {
+						"rules": {
+							"comment:cpp": "#707070",
+							"comment:c": "#707070"
+						}
+					}
+				},
+				"terminal.integrated.env.linux": {
+					"EDITOR": "code --wait"
+				},
+				"git.autoStash": true,
+				"files.associations": {
+					".clangd": "yaml"
+				}
 			},
 			"extensions": [
 				"mhutchie.git-graph",

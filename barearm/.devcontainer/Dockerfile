@@ -63,7 +63,7 @@ RUN ln -s /opt/stm32cubeprogrammer/bin/STM32_Programmer_CLI /usr/local/bin/STM32
 # PyOCD
 RUN pip install --break-system-packages pyocd==0.36.0
 
-# clangd (version 17.0.3)
+# clangd (version 20.1.0)
 RUN mkdir /tmp/clangd && \
 	curl -sL -o /tmp/clangd/clangd.zip "https://github.com/clangd/clangd/releases/download/20.1.0/clangd-linux-20.1.0.zip" && \
 	unzip /tmp/clangd/clangd.zip -d /tmp/clangd && \

@@ -4,9 +4,7 @@
 		"context": "../"
 	},
 	"privileged": true,
-	"mounts": [
-		"type=bind,source=/dev,target=/dev"
-	],
+	"mounts": ["type=bind,source=/dev,target=/dev"],
 	"remoteUser": "vscode",
 	"customizations": {
 		"vscode": {

@@ -1,1 +1,1 @@
-. $IDF_PATH/export.sh
+. /opt/esp/entrypoint.sh
