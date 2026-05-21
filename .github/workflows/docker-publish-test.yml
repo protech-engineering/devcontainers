@@ -19,6 +19,7 @@ jobs:
           - barearmgui
           - barearmnordic
           - esp
+          - nordic
           # - hdl
       max-parallel: 1
     steps:
