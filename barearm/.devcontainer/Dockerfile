@@ -34,7 +34,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
 	&& rm -rf /var/lib/apt/lists/*
 
 # ARM GCC Compiler
-RUN curl -sL "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2" | tar -xjf - -C /usr/local --strip-components=1
+RUN curl -sL "https://developer.arm.com/-/media/files/downloads/gnu-rm/7-2018q2/gcc-arm-none-eabi-7-2018-q2-update-linux.tar.bz2" | tar -xjf - -C /usr/local --strip-components=1
 
 # OpenOCD (version 0.12.0-1)
 RUN mkdir /opt/openocd && \
